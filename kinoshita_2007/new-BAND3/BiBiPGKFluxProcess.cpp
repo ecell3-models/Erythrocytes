@@ -48,6 +48,7 @@ LIBECS_DM_CLASS( BiBiPGKFluxProcess, ContinuousProcess )
 
     S0 = getVariableReference( "S0" );
     S1 = getVariableReference( "S1" );
+    E0 = getVariableReference( "E0" );
     P0 = getVariableReference( "P0" );
     P1 = getVariableReference( "P1" );
   }  
@@ -65,8 +66,7 @@ LIBECS_DM_CLASS( BiBiPGKFluxProcess, ContinuousProcess )
       ( ( ( kcatf * S0.getMolarConc() * S1.getMolarConc() ) / ( KiMgADP * KmB13PG ) ) -
 	( ( kcatr * P0.getMolarConc() * P1.getMolarConc() ) / ( KiMgATP * KmP3GA ) ) );
 
-    velocity = velocity * getSuperSystem()->getSize() * N_A;
-
+    velocity = velocity * getSuperSystem()->getSize() * N_A * E0.getValue()/1000.0; // ducky 090716
     setFlux( velocity );
 
   }
@@ -75,6 +75,7 @@ LIBECS_DM_CLASS( BiBiPGKFluxProcess, ContinuousProcess )
 
   VariableReference S0;
   VariableReference S1;
+  VariableReference E0;
   VariableReference P0;
   VariableReference P1;
 

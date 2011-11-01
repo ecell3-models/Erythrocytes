@@ -1,5 +1,6 @@
 #include "libecs.hpp"
 #include "Process.hpp"
+
 #include "ContinuousProcess.hpp"
 
 USE_LIBECS;
@@ -37,7 +38,7 @@ LIBECS_DM_CLASS( TotalSumProcess, ContinuousProcess )
 
     P0.setValue(0);
 
-  for( VariableReferenceVectorConstIterator
+  for( VariableReferenceVector::const_iterator
 	 i ( thePositiveVariableReferenceIterator );
        i != theVariableReferenceVector.end(); ++i )
     {

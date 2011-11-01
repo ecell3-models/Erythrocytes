@@ -36,6 +36,7 @@ LIBECS_DM_CLASS( UniUniPGMFluxProcess, ContinuousProcess )
     Process::initialize();
 
     S0 = getVariableReference( "S0" );
+    E0 = getVariableReference( "E0" );
     P0 = getVariableReference( "P0" );
 
   }  
@@ -52,6 +53,9 @@ LIBECS_DM_CLASS( UniUniPGMFluxProcess, ContinuousProcess )
 
     velocity = velocity * getSuperSystem()->getSize() * N_A;
 
+    Real ActCo = E0.getVariable()->getValue();
+    velocity *= ActCo / 1000;
+
     setFlux( velocity );
 
   }
@@ -65,6 +69,7 @@ LIBECS_DM_CLASS( UniUniPGMFluxProcess, ContinuousProcess )
   Real kcatr;
 
   VariableReference S0;
+  VariableReference E0;
   VariableReference P0;
 
 };

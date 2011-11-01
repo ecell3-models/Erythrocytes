@@ -29,14 +29,17 @@ LIBECS_DM_CLASS( UniUniOXFluxProcess, ContinuousProcess )
     Process::initialize();
 
     S0 = getVariableReference( "S0" );
+    E0 = getVariableReference( "E0" );
 
   }  
   
   virtual void fire()
   {
+
     Real velocity = k * S0.getMolarConc();
 
-    velocity = velocity * getSuperSystem()->getSize() * N_A;
+    velocity = velocity * getSuperSystem()->getSize() * N_A * E0.getValue()/1000.0; 
+    //ducky 090717;
 
     setFlux( velocity );
 
@@ -47,6 +50,7 @@ LIBECS_DM_CLASS( UniUniOXFluxProcess, ContinuousProcess )
   Real k;
 
   VariableReference S0;
+  VariableReference E0;
 
 };
 

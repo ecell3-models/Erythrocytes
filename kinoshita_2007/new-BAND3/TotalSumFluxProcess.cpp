@@ -2,9 +2,8 @@
 #include "Util.hpp"
 #include "PropertyInterface.hpp"
 
-#include "System.hpp"
-
 #include "ContinuousProcess.hpp"
+#include "System.hpp"
 
 USE_LIBECS;
 
@@ -25,7 +24,7 @@ LIBECS_DM_CLASS( TotalSumFluxProcess, ContinuousProcess )
 
     Real velocity = 0;
     Real k=0;
-    for( VariableReferenceVectorConstIterator
+    for( VariableReferenceVector::const_iterator
 	   i ( theZeroVariableReferenceIterator );
 	 i != theVariableReferenceVector.end(); ++i )
       {

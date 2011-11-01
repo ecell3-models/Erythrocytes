@@ -61,7 +61,7 @@ LIBECS_DM_CLASS( RBCMassActionProcess, ContinuousProcess )
 
       velocity *= S0.getVariable()->getSuperSystem()->getSize();
 
-      for( VariableReferenceVectorConstIterator
+      for( VariableReferenceVector::const_iterator
 	     i( theVariableReferenceVector.begin() );
 	   i != theZeroVariableReferenceIterator; ++i ){
 	
@@ -80,12 +80,12 @@ LIBECS_DM_CLASS( RBCMassActionProcess, ContinuousProcess )
       velocity *= ActCo / 1000 / 1000 / 3600;
     }
 
-    Real aStepInterval( getStepper()->getStepInterval() );
-    velocity *= aStepInterval;
+    //    Real aStepInterval( getStepper()->getStepInterval() );
+    //    velocity *= aStepInterval;
 
     if( velocity > 0 ){
 
-      for( VariableReferenceVectorConstIterator
+      for( VariableReferenceVector::const_iterator
 	     i( theVariableReferenceVector.begin() );
 	   i != theZeroVariableReferenceIterator; ++i ){
 
@@ -112,7 +112,7 @@ LIBECS_DM_CLASS( RBCMassActionProcess, ContinuousProcess )
       velocity = 0;
     }
 
-    velocity /= aStepInterval;
+    //    velocity /= aStepInterval;
 
     setFlux( velocity );
 

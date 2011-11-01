@@ -35,7 +35,7 @@ LIBECS_DM_CLASS( MassActionFluxProcess, ContinuousProcess )
     Real velocity( k * N_A );
     velocity *= getSuperSystem()->getSize();
 
-    for( VariableReferenceVectorConstIterator 
+    for( VariableReferenceVector::const_iterator 
 	   s( theVariableReferenceVector.begin() );
 	 s != theZeroVariableReferenceIterator; ++s )
       {
