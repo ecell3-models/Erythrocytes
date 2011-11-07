@@ -1,0 +1,8 @@
+
+[Instruction for running RC-MAP model]
+
+$ cd RC-MAP
+$ ecell3-dmc *.cpp
+$ ecell3-python RCMAP-run.py
+
+then you can get 'Data' directory which contains some ecd files of RC-MAP metabolism. 
